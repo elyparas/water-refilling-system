@@ -32,7 +32,10 @@ async function api(file, action = 'list', body = null, params = '') {
   let data;
   try { data = JSON.parse(text); }
   catch {
-    throw new Error('The server did not return data. PHP is not running for this page - open the app via http://localhost/... from the XAMPP htdocs folder (not Live Server or file://), and start Apache and MySQL.');
+    const url = res.url;
+    const snippet = text.replace(/\s+/g, ' ').trim().slice(0, 160);
+    console.error('API non-JSON response', res.status, url, text);
+    throw new Error(`Bad response (HTTP ${res.status}) from ${url} -> "${snippet}"`);
   }
   if (!res.ok || (data && !Array.isArray(data) && data.error)) throw new Error(data.error || 'Something went wrong.');
   return data;
@@ -47,7 +50,7 @@ function toast(msg, type = 'success') {
   t.className = 'toast ' + type;
   t.innerHTML = `<i class="fa-solid ${icons[type]}"></i><span>${esc(msg)}</span>`;
   box.appendChild(t);
-  setTimeout(() => { t.classList.add('hide'); setTimeout(() => t.remove(), 300); }, 3500);
+  setTimeout(() => { t.classList.add('hide'); setTimeout(() => t.remove(), 300); }, type === 'error' ? 12000 : 3500);
 }
 
 /* ---------- button loading state ---------- */
