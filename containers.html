@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaTrack | Containers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="containers">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Containers</h1><p>Track ownership, condition and borrowing</p></div>
+      <div class="actions"><div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="text" placeholder="Search label or owner..."></div></div>
+    </div>
+
+    <section class="card">
+      <div class="card-header"><h2>Register Container</h2></div>
+      <form id="f-reg" class="form-grid three">
+        <div class="field"><label>Owner</label><select name="customer_id" required></select></div>
+        <div class="field"><label>Label / Mark</label><input name="label_mark" type="text" placeholder="e.g. MS-002"></div>
+        <div class="field"><label>Size</label><select name="size"><option>5-Gallon Round</option><option>5-Gallon Slim</option></select></div>
+        <div class="field"><label>Condition</label><select name="current_condition"><option>Good</option><option>Dirty</option><option>Cracked</option><option>Worn Out</option></select></div>
+        <div class="field"><button class="btn" type="submit"><i class="fa-solid fa-plus"></i> Save Container</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-header"><h2>Condition Check</h2></div>
+      <form id="f-check" class="form-grid three">
+        <div class="field"><label>Container</label><select name="container_id" required></select></div>
+        <div class="field"><label>Order</label><select name="order_id" required></select></div>
+        <div class="field"><label>Result</label><select name="condition_result"><option>Clean/Approved</option><option>Needs Sanitization</option><option>Damaged/Rejected</option></select></div>
+        <div class="field full"><label>Action Taken (optional)</label><input name="action_taken" type="text" placeholder="Sanitized, Replaced, Accepted..."></div>
+        <div class="field"><button class="btn" type="submit"><i class="fa-solid fa-clipboard-check"></i> Record Check</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-header"><h2>Borrow / Return</h2></div>
+      <form id="f-txn" class="form-grid three">
+        <div class="field"><label>Container</label><select name="container_id" required></select></div>
+        <div class="field"><label>Type</label><select name="txn_type"><option>Borrow</option><option>Return</option><option>Exchange</option></select></div>
+        <div class="field"><label>Quantity</label><input name="quantity" type="number" min="1" value="1" required></div>
+        <div class="field"><button class="btn" type="submit"><i class="fa-solid fa-right-left"></i> Record</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-header"><h2>Container List</h2></div>
+      <table class="searchable">
+        <thead><tr><th>ID</th><th>Label</th><th>Owner</th><th>Size</th><th>Condition</th><th>Return Status</th><th>Actions</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/containers.js"></script>
+</body>
+</html>

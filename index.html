@@ -1,2 +1,41 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaTrack | Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="index">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Dashboard</h1><p>Overview of today's operations</p></div>
+      <div class="actions"><a href="orders.html" class="btn"><i class="fa-solid fa-plus"></i> New Order</a></div>
+    </div>
 
+    <section class="stats">
+      <div class="stat"><div class="icon"><i class="fa-solid fa-peso-sign"></i></div><div><h3 id="s-sales">-</h3><span>Daily Sales</span></div></div>
+      <div class="stat"><div class="icon"><i class="fa-solid fa-cart-shopping"></i></div><div><h3 id="s-orders">-</h3><span>Orders Today</span></div></div>
+      <div class="stat"><div class="icon"><i class="fa-solid fa-truck-fast"></i></div><div><h3 id="s-pending">-</h3><span>Pending Deliveries</span></div></div>
+      <div class="stat"><div class="icon"><i class="fa-solid fa-triangle-exclamation"></i></div><div><h3 id="s-damaged">-</h3><span>Containers Needing Attention</span></div></div>
+    </section>
+
+    <section class="card">
+      <div class="card-header"><h2>Recent Orders</h2><a href="orders.html" class="badge blue">View all</a></div>
+      <table><thead><tr><th>Order #</th><th>Customer</th><th>Total</th><th>Status</th></tr></thead>
+        <tbody id="tbody-recent"></tbody></table>
+    </section>
+
+    <section class="card">
+      <div class="card-header"><h2>Container Alerts</h2><a href="containers.html" class="badge blue">View all</a></div>
+      <table><thead><tr><th>Label</th><th>Owner</th><th>Condition</th></tr></thead>
+        <tbody id="tbody-alerts"></tbody></table>
+    </section>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

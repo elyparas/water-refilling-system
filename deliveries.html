@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaTrack | Deliveries</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="deliveries">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Deliveries</h1><p>Schedule and monitor deliveries</p></div>
+      <div class="actions"><div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="text" placeholder="Search delivery..."></div></div>
+    </div>
+
+    <section class="card">
+      <div class="card-header"><h2>Schedule Delivery</h2></div>
+      <form id="form" class="form-grid three">
+        <div class="field"><label>Order</label><select name="order_id" required></select></div>
+        <div class="field"><label>Delivery Rider</label><select name="staff_id" required></select></div>
+        <div class="field"><label>Delivery Date &amp; Time</label><input name="delivery_date" type="datetime-local" required></div>
+        <div class="field full"><label>Delivery Address</label><input name="delivery_address" type="text" placeholder="Auto-filled from the customer, editable" required></div>
+        <div class="field"><button class="btn" type="submit"><i class="fa-solid fa-truck-fast"></i> Schedule</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-header"><h2>Delivery List</h2></div>
+      <table class="searchable">
+        <thead><tr><th>ID</th><th>Order #</th><th>Customer</th><th>Rider</th><th>Address</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/deliveries.js"></script>
+</body>
+</html>

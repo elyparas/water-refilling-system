@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaTrack | Customers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="customers">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Customers</h1><p>Manage customer records</p></div>
+      <div class="actions"><div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="text" placeholder="Search customer..."></div></div>
+    </div>
+
+    <section class="card">
+      <div class="card-header"><h2>Register Customer</h2></div>
+      <form id="form" class="form-grid">
+        <div class="field"><label>Full Name</label><input name="full_name" type="text" placeholder="Juan Dela Cruz" required></div>
+        <div class="field"><label>Contact No.</label><input name="contact_no" type="text" placeholder="09XXXXXXXXX" required pattern="(09|[+]639)[0-9 ]{9,12}" title="Example: 09171234567"></div>
+        <div class="field full"><label>Address</label><textarea name="address" rows="2" placeholder="Street, Barangay, Town" required></textarea></div>
+        <div class="field"><button class="btn" type="submit"><i class="fa-solid fa-user-plus"></i> Save Customer</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-header"><h2>Customer List</h2></div>
+      <table class="searchable">
+        <thead><tr><th>ID</th><th>Name</th><th>Contact</th><th>Address</th><th>Actions</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/customers.js"></script>
+</body>
+</html>
